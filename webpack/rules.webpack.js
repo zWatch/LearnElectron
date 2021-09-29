@@ -19,5 +19,11 @@ module.exports = [
     use: {
       loader: 'babel-loader'
     }
-  }
+  },
+  {
+    test: /\.m?js/,
+    resolve: {
+        fullySpecified: false
+    }
+  },
 ]
