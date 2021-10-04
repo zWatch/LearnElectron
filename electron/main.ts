@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu } from 'electron'
 
 let mainWindow: BrowserWindow | null
 
@@ -30,6 +30,20 @@ function createWindow () {
   })
 }
 
+// const dockMenu = Menu.buildFromTemplate([
+//   {
+//     label: 'New Window',
+//     click () { console.log('New Window') }
+//   }, {
+//     label: 'New Window with Settings',
+//     submenu: [
+//       { label: 'Basic' },
+//       { label: 'Pro' }
+//     ]
+//   },
+//   { label: 'New Command...' }
+// ])
+
 async function registerListeners () {
   /**
    * This comes from bridge integration, check bridge.ts
@@ -42,6 +56,11 @@ async function registerListeners () {
 app.on('ready', createWindow)
   .whenReady()
   .then(registerListeners)
+  // .then(()=>{
+  //   app.dock.setMenu(dockMenu)
+  //   // if (process.platform === 'darwin') {      
+  //   // }
+  // })
   .catch(e => console.error(e))
 
 app.on('window-all-closed', () => {
