@@ -1,4 +1,5 @@
 import { app, BrowserWindow, ipcMain, Menu } from 'electron'
+import { registerGlobalShortcuts, unRegisterLocalShortcuts } from './shortcuts'
 
 let mainWindow: BrowserWindow | null
 
@@ -15,8 +16,11 @@ function createWindow () {
     // icon: path.join(assetsPath, 'assets', 'icon.png'),
     width: 1100,
     height: 700,
-    backgroundColor: '#191622',
+    backgroundColor: '#FFFFFF',
+    transparent : true,
+    frame:false,
     webPreferences: {
+      devTools:false,
       nodeIntegration: false,
       contextIsolation: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
@@ -56,6 +60,7 @@ async function registerListeners () {
 app.on('ready', createWindow)
   .whenReady()
   .then(registerListeners)
+  .then(registerGlobalShortcuts)
   // .then(()=>{
   //   app.dock.setMenu(dockMenu)
   //   // if (process.platform === 'darwin') {      
@@ -74,3 +79,7 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+app.on('will-quit', function() {
+  unRegisterLocalShortcuts();
+});
