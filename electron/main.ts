@@ -17,10 +17,10 @@ function createWindow () {
     width: 1100,
     height: 700,
     backgroundColor: '#FFFFFF',
-    transparent : true,
-    frame:false,
+    // transparent : true,
+    // frame:false,
     webPreferences: {
-      devTools:false,
+      // devTools:false,
       nodeIntegration: false,
       contextIsolation: true,
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY

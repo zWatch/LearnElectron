@@ -17,8 +17,16 @@ module.exports = [
     test: /\.(js|ts|tsx)$/,
     exclude: /node_modules/,
     use: {
-      loader: 'babel-loader'
-    }
+      loader: 'babel-loader',
+      // options: {
+      //   presets: ["@babel/react"],
+      //   plugins: [
+      //     ["import",
+      //       { libraryName: "antd", libraryDirectory: "es", style: "true" }
+      //     ]
+      //   ]
+      // }
+  }
   },
   {
     test: /\.m?js/,
@@ -26,4 +34,12 @@ module.exports = [
         fullySpecified: false
     }
   },
+  {
+    test:/\.css$/,
+    use:[
+      'style-loader',
+      'css-loader',
+      // 'less-loader'
+    ]
+  }
 ]
