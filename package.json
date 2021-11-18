@@ -70,8 +70,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-        "name": "ZWatch's ElectronLearning",
-        "executableName": "ZWatch&Electron",
+        "name": "ZWatch's Electron",
+        "executableName": "ZWatch's Electron",
         "icon": "assets/icon",
         "extraResource": [
           "assets"
