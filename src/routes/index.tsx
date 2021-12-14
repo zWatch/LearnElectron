@@ -1,19 +1,22 @@
+import { Greetings } from "../components/Greetings";
 import AntExample from "../example/AntExample";
+
 
 interface RouteType{
     path:string, 
     name?:string,
-    component:React.FunctionComponent | React.Component
+    element?:JSX.Element
+    //component:React.FunctionComponent | React.Component
 };
 
 const AppRoutes:RouteType[] = [{
-        path: '/Example/Ant',
+        path: '/HelloWorld',
         name: '样例',
-        component: AntExample
+        element: Greetings()
     },{
         path: '/',
         name: 'Home',
-        component:AntExample
+        element:AntExample()
     }
 ]
 
