@@ -15,23 +15,22 @@ export function App() {
       {/* <Link to='/HelloWorld'>'你好'</Link>      
       <Link to='/Example/Ant'>'Antd样例'</Link> */}
 
+      {/* <Link to='/HelloWorld'>'Greetings'</Link>
+      <Link to='/Example/Ant'>'Antd样例'</Link> */}
       {
       AppRoutes.map((route, index) => {
               return <Link to={route.path}>{route.name}</Link>                
             })
       }
-      {/* <Link to='/HelloWorld'>'Greetings'</Link>
-      <Link to='/Example/Ant'>'Antd样例'</Link> */}
 
       <Routes>
+        {/* <Route key={ 2 } path={'/HelloWorld'} element={Greetings()}/>
+        <Route key={ 3 } path={'/Example/Ant'} element={AntExample()}/> */}
         { AppRoutes.map((route, index)=>{
             return <Route key={ index+1 } path={route.path} element={<>
               {route.element}
             </>} > </Route>
         })}
-
-        {/* <Route key={ 2 } path={'/HelloWorld'} element={Greetings()}/>
-        <Route key={ 3 } path={'/Example/Ant'} element={AntExample()}/> */}
       </Routes>
       <Outlet/>
       </Suspense>
